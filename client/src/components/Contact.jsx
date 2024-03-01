@@ -4,7 +4,7 @@ import contactImg from "../assets/contact.png"
 const Contact = () => {
   return (
     <>
-      <div className='p-4 bg-yellow-400 border-b-2 border-sky-950'>
+      <div className='p-10 bg-yellow-400 border-b-2 border-sky-950'>
         <div className='capitalize text-center text-4xl
        font-bold text-sky-950  rounded-md'>Contact Us</div>
 

@@ -10,7 +10,7 @@ import ListDonation from '../sec-root/ListDonation'
 const Services = () => {
   return (
     <>
-    <div className=' p-4 bg-yellow-400 border-sky-950 border-b-2'>
+    <div className=' p-10 bg-yellow-400 border-sky-950 border-b-2'>
         <div className='capitalize text-center text-4xl
        font-bold text-sky-950  rounded-md'>Our Services</div>
 
