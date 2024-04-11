@@ -16,28 +16,28 @@ const Contact = () => {
             <form action="">
 
               <div className='p-2 '>
-                <label for="name" className='text-xl font-serif flex justify-between'>
+                <label htmlFor="name" className='text-xl font-serif flex justify-between'>
                   <span>Name:</span>
                 <input type="text" name='name' 
                 className='bg-yellow-100 px-2 rounded-md'/></label>
               </div>
 
               <div className='p-2 '>
-                <label for="email"className='text-xl font-serif flex justify-between'>
+                <label htmlFor="email"className='text-xl font-serif flex justify-between'>
                   Email:
                 <input type="email" name='email'
                 className='bg-yellow-100 px-2 rounded-md' /></label>
               </div>
 
               <div className='p-2'>
-                <label for="contact" className='text-xl font-serif flex justify-between'>
+                <label htmlFor="contact" className='text-xl font-serif flex justify-between'>
                   Contact No. :
                 <input type="number" name='contact'
                 className='bg-yellow-100 px-2 rounded-md' /></label>
               </div>
 
               <div className='p-2'>
-                <label for="msg" className='text-xl font-serif flex flex-col justify-between'>
+                <label htmlFor="msg" className='text-xl font-serif flex flex-col justify-between'>
                   Message:
                 <textarea name="msg" id="msg" cols="50" rows="5"
                 className='bg-yellow-100 px-2 rounded-md'></textarea></label>

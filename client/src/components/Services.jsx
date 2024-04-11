@@ -6,6 +6,8 @@ import list from '../assets/topDonation.png'
 import Donate from '../sec-root/Donate'
 import Request from '../sec-root/Request'
 import ListDonation from '../sec-root/ListDonation'
+import AddNGO from './AddNGO'
+import AddDonor from '../sec-root/AddDonor'
 
 const Services = () => {
   return (
@@ -19,6 +21,10 @@ const Services = () => {
         <Card img={donate} but="Donate Now" ele={<Donate/>}/>
         <Card img={makeReq} but="Make Request for Donation" ele={<Request/>}/>
         <Card img={list} but="Top Donation List" ele={<ListDonation/>}/>
+        <Card img={list} but="Add NGO" ele={<AddNGO/>}/>
+        <Card img={list} but="Add Donor" ele={<AddDonor/>}/>
+
+
        </div>
     </div>
     </>
