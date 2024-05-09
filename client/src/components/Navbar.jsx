@@ -32,14 +32,14 @@ const Navbar = () => {
       </div>
       <div className='basis-[60%] m-2 p-2'>
         {/* flex for menu */}
-        <div className='flex justify-evenly text-white'>   
-          <span className='p-2 rounded-lg hover:bg-white hover:text-black cursor-pointer'>Home</span>
-          <span className='p-2 rounded-lg hover:bg-white hover:text-black cursor-pointer capitalize'>What we do</span>
-          <span className='p-2 rounded-lg hover:bg-white hover:text-black cursor-pointer'>Contact Us</span>
-          <span className='p-2 rounded-lg hover:bg-white hover:text-black cursor-pointer'>Our Services</span>
+        <div className='flex justify-end text-white'>   
+          {/* <span className='p-2 rounded-lg hover:bg-white hover:text-black cursor-pointer'>Home</span> */}
+          {/* <span className='p-2 rounded-lg hover:bg-white hover:text-black cursor-pointer capitalize'>What we do</span> */}
+          {/* <span className='p-2 rounded-lg hover:bg-white hover:text-black cursor-pointer'>Contact Us</span> */}
+          {/* <span className='p-2 rounded-lg hover:bg-white hover:text-black cursor-pointer'>Our Services</span> */}
           <span className='p-2 rounded-lg hover:bg-white hover:text-black cursor-pointer'
           onClick={()=>setSecView(true)}>Profile</span>
-          <span className='p-2 rounded-lg hover:bg-white hover:text-black cursor-pointer'>Logout</span>
+          {/* <span className='p-2 rounded-lg hover:bg-white hover:text-black cursor-pointer'>Logout</span> */}
         </div>
         {secView?<Modal onClose={()=>setSecView(false)}><Profile/></Modal>:null}
       </div>

@@ -7,6 +7,7 @@ const MakePayment = () => {
     const contract=state.contract;
 
     const making=async()=>{
+        console.log(account[0])
         const makePayment= await contract.makePayment();
         console.log(makePayment)
     }
@@ -15,7 +16,7 @@ const MakePayment = () => {
     <>
     <div>
         <button className='m-2 p-2 bg-green-600 rounded-md text-white
-         font-bold hover:bg-green-100 hover:text-black'>
+         font-bold hover:bg-green-100 hover:text-black' onClick={making}>
             Make Payment
         </button>
     </div>

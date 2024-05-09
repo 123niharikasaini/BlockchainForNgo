@@ -5,26 +5,43 @@ import MakePayment from './MakePayment'
 
 const Profile = () => {
   // const account=useContext(userContext)
-  const {state}=useContext(userContext)
-  const account=useContext(userContext)
-  console.log(account)
-  const address=account.account[0]
+  const {state,account}=useContext(userContext)
+  // const account=useContext(userContext)
+  // console.log(account[0])
+  const address=account[0]
 
   const [detail,setDetail]=useState({
     name:"",
+    occ:""
   });
+  
+
   const contract=state.contract;
   // console.log(contract.getDetail(address))
 
 
   useEffect(()=>{
     const info=async()=>{
-      // console.log(address)
-      const temp=await contract.getDetail(address)
-      const srNo=parseInt(temp._hex,16)
-      const det=await contract.donorList(srNo)
-      console.log(det)
-      setDetail({name:det[2]})
+      let temp;
+      let srNo;
+      let det;
+      const checkDonor=await contract.ifDonor(address);
+      // const checkNGO=await contract.ifNgo(address);
+      if(checkDonor){
+        temp=await contract.getDetailDonor(address)
+        srNo=parseInt(temp._hex,16)
+        det=await contract.donorList(srNo)
+        setDetail({name:det[2],occ:"Donor"})
+      }
+        else{
+          temp=await contract.getDetail(address)
+          srNo=parseInt(temp._hex,16)
+          det=await contract.ngoList(srNo)
+          setDetail({name:det[2],occ:"NGO"})
+
+        }
+      // console.log(det)
+      // setDetail({name:det[2]})
     }
     info();
     // console.log(detail)
@@ -40,13 +57,15 @@ const Profile = () => {
             <span className='basis-[40%] m-2 text-center'>
                 <img src={profile} alt=".."  className='object-cover aspect-auto'/>
             </span>
-            <div className='m-2 p-2 text-center basis-[60%]'>
-                <p className='text-lg'>Name:  {detail.name} </p>
-                <p className='text-lg'>Total amount donated</p>
-                <p className='text-lg'>NGO Donated</p>
+            <div className='m-2 p-2 text-center flex flex-col justify-evenly
+            basis-[60%] bg-slate-500 text-white'>
+                <p className='text-xl font-bold '>Name:  {detail.name} </p>
+                <p className='text-lg '>Registered as:  {detail.occ}</p>
+                {/* <p className='text-lg'>NGO Donated</p> */}
             </div>
         </div>
-        <MakePayment/>
+        {detail.occ=="NGO"?<MakePayment/>:""}
+        
     </div>
     </>
   )

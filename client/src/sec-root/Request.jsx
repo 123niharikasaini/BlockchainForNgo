@@ -1,5 +1,7 @@
 import React, { useContext } from 'react'
 import { userContext } from '../context/MetaMaskContext'
+import { ethers } from 'ethers'
+
 
 const Request = () => {
 
@@ -8,6 +10,8 @@ const Request = () => {
     const makingReq=async(event)=>{
         event.preventDefault();
         const amt=event.target.amt.value;
+        // const amount={value:ethers.utils.parseEther(amt)}
+        console.log(amt)
         const purpose=event.target.purpose.value;
         const deadline=event.target.deadline.value;
 // console.log(event.target.amt.value)
