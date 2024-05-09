@@ -15,12 +15,12 @@ const Donate = () => {
     const showReq=async()=>{
       const temp= await state.contract.allReqList();
       setList([...temp])
-      
+      console.log(temp)
 
     }
     showReq();
   },[]);
-  // console.log(list)
+  console.log(list)
 
   const getDetails=async(add)=>{
     const det=await state.contract.getDetail(add);
@@ -55,7 +55,7 @@ const Donate = () => {
 {list?.map((val)=>{
   // const temp=val[2]._hex
   // console.log(parseInt(temp,16))
-  // console.log(val[6]._hex)
+  // console.log(val[7])
   getDetails(val[1])
   return (
         <Row name={name} add={address} total={parseInt(val[6]._hex,16)} purpose={val[3]} amt={parseInt(val[2]._hex,16)} date={parseInt(val[4]._hex,16)} action="Donate"/>

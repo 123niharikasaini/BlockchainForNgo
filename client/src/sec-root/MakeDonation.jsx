@@ -7,14 +7,21 @@ const MakeDonation = (props) => {
   const {state, account}=useContext(userContext);
   const [totalAmount,setAmount]=useState(0)
   const contract=state.contract
+  const address=account[0]
 
   const sending=async(event)=>{
     event.preventDefault();
+    const checkDonor=await contract.ifDonor(address);
+    if(checkDonor){
     const amt=event.target.amt.value;
     const amount={value:ethers.utils.parseEther(amt)}
-    // console.log(amt)
+    console.log(amount)
     const callDonate=await contract.makeDonations(props.add,amount)
-    console.log(callDonate)
+    // console.log(callDonate)
+    }
+    else{
+      alert("You are not a donor. You are not allowed to donate.")
+    }
   }
 
   useEffect(()=>{
@@ -45,7 +52,7 @@ const MakeDonation = (props) => {
         </div>
 
         <div className='p-2 text-white cursor-pointer  flex justify-center'>
-            <button type="submit" className='p-4 rounded-md bg-sky-400'>Add NGO</button>
+            <button type="submit" className='p-4 rounded-md bg-sky-400'>Donate Now</button>
         </div>
     </form>
     </div>

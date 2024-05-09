@@ -11,10 +11,22 @@ const AddNGO = () => {
 
     const saveInfo=async(event)=>{
         event.preventDefault();
-        const name=event.target.name.value
-        console.log(name)
+        const checkDonor=await contract.ifDonor(account[0]);
+        
+        const checkNGO=await contract.ifNgo(account[0]);
+        
+        if(!checkDonor && !checkNGO){
 
-        const saving=await contract.addDonor(name)
+            const name=event.target.name.value
+            // console.log(name)
+    
+            const saving=await contract.addDonor(name)
+        }else{
+            if(checkDonor)alert("Already registered as Donor")
+            if(checkNGO)alert("Already registered as NGO")
+
+        }
+        
         // console.log(event.target.name.value)
 
         // console.log(contract)
@@ -43,7 +55,7 @@ const AddNGO = () => {
         </div> */}
 
         <div className='p-2 text-white cursor-pointer  flex justify-center'>
-            <button type="submit" className='p-4 rounded-md bg-sky-400'>Add NGO</button>
+            <button type="submit" className='p-4 rounded-md bg-sky-400'>Add as Donor</button>
         </div>
     </form>
     {/* <button onClick={show}> Show all ngo list</button> */}

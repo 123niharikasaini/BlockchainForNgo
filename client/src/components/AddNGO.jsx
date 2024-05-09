@@ -4,19 +4,33 @@ import { userContext } from '../context/MetaMaskContext';
 
 const AddNGO = () => {
 
-    const {state}=useContext(userContext)
+    const {state,account}=useContext(userContext)
     // console.log(state.contract)
     const contract=state.contract
+    // console.log(account[0])
     
 
     const saveInfo=async(event)=>{
         event.preventDefault();
+        const checkDonor=await contract.ifDonor(account[0]);
+        
+        const checkNGO=await contract.ifNgo(account[0]);
+        
+        if(!checkDonor && !checkNGO){
+
         const name=event.target.name.value
         console.log(name)
         const desc=event.target.desc.value
 
         const saving=await contract.addNgo(name,desc)
         // console.log(event.target.name.value)
+
+        }
+        else{
+            if(checkDonor)alert("Already registered as Donor")
+            if(checkNGO)alert("Already registered as NGO")
+
+        }
 
         // console.log(contract)
         // console.log(await contract.allNgoList())

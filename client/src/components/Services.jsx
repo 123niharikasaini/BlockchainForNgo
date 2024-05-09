@@ -20,7 +20,7 @@ const Services = () => {
         {/* cards */}
         <Card img={donate} but="Donate Now" ele={<Donate/>}/>
         <Card img={makeReq} but="Make Request for Donation" ele={<Request/>}/>
-        <Card img={list} but="Top Donation List" ele={<ListDonation/>}/>
+        {/* <Card img={list} but="Top Donation List" ele={<ListDonation/>}/> */}
         <Card img={list} but="Add NGO" ele={<AddNGO/>}/>
         <Card img={list} but="Add Donor" ele={<AddDonor/>}/>
 
