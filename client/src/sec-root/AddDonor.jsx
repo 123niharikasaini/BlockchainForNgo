@@ -4,7 +4,7 @@ import { userContext } from '../context/MetaMaskContext';
 
 const AddNGO = () => {
 
-    const {state}=useContext(userContext)
+    const {state,account}=useContext(userContext)
     // console.log(state.contract)
     const contract=state.contract
     
